@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodyShop", "MelodyShop\MelodyShop.csproj", "{3BC08EB0-56E6-4552-9C58-5B63E87E7523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodyShop.Tests", "MelodyShop.Tests\MelodyShop.Tests.csproj", "{5B1D7648-E557-437F-A41F-9E0C608B6C72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BC08EB0-56E6-4552-9C58-5B63E87E7523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC08EB0-56E6-4552-9C58-5B63E87E7523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC08EB0-56E6-4552-9C58-5B63E87E7523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC08EB0-56E6-4552-9C58-5B63E87E7523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1D7648-E557-437F-A41F-9E0C608B6C72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1D7648-E557-437F-A41F-9E0C608B6C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1D7648-E557-437F-A41F-9E0C608B6C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1D7648-E557-437F-A41F-9E0C608B6C72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3844E0F-C563-4B22-BD38-00724CB3F60F}
+	EndGlobalSection
+EndGlobal
