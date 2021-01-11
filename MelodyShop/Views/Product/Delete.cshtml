@@ -1,0 +1,64 @@
+﻿@model MelodyShop.DataAccessLayer.Product
+
+@{
+    ViewBag.Title = "Usuń produkt";
+}
+
+<h2>Usuń produkt</h2>
+
+<h3>Czy napewno chcesz usunąć ten produkt?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

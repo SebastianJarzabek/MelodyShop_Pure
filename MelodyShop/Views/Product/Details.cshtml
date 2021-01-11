@@ -1,0 +1,57 @@
+﻿@model MelodyShop.DataAccessLayer.Product
+
+@{
+    ViewBag.Title = "Szczegóły produktu";
+}
+
+<h2>Szczegóły produktu</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>
