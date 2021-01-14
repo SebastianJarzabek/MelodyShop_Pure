@@ -1,0 +1,53 @@
+﻿@model MelodyShop.DataAccessLayer.Cart
+
+@{
+    ViewBag.Title = "Usuń Z koszyka";
+}
+
+<h2>Usuń z koszyka</h2>
+
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["SM"]
+    </div>}
+<h3>Czy napewno chcesz usunąć produkt z koszyka?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.producer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.producer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

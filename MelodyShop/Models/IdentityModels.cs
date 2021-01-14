@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -33,5 +32,9 @@ namespace MelodyShop.Models
     public System.Data.Entity.DbSet<MelodyShop.DataAccessLayer.Product> Products { get; set; }
 
     public System.Data.Entity.DbSet<MelodyShop.DataAccessLayer.Category> Categories { get; set; }
+
+    public System.Data.Entity.DbSet<MelodyShop.DataAccessLayer.Cart> Carts { get; set; }
+
+    public System.Data.Entity.DbSet<MelodyShop.DataAccessLayer.DataToOrder> DataToOrders { get; set; }
   }
 }

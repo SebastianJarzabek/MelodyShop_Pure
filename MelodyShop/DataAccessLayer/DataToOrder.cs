@@ -9,24 +9,46 @@
 
 namespace MelodyShop.DataAccessLayer
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class DataToOrder
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string email { get; set; }
-        public string phoneNumber { get; set; }
-        public string street { get; set; }
-        public string hoseNumber { get; set; }
-        public string postalCode { get; set; }
-        public string city { get; set; }
-        public string country { get; set; }
-        public string messageToOrder { get; set; }
-        public int cartId { get; set; }
-    
-        public virtual Cart Cart { get; set; }
-    }
+  using System;
+  using System.Collections.Generic;
+  using System.ComponentModel.DataAnnotations;
+
+  public partial class DataToOrder
+  {
+    public int id { get; set; }
+
+    [Display(Name = "Imi?")]
+    public string name { get; set; }
+
+    [Display(Name = "Nazwisko")]
+    public string surname { get; set; }
+
+    [Display(Name = "Email")]
+    public string email { get; set; }
+
+    [Display(Name = "Numer Telefonu")]
+    public string phoneNumber { get; set; }
+
+    [Display(Name = "Ulica")]
+    public string street { get; set; }
+
+    [Display(Name = "Numer domu")]
+    public string hoseNumber { get; set; }
+
+    [Display(Name = "Kod pocztowy")]
+    public string postalCode { get; set; }
+
+    [Display(Name = "Miasto")]
+    public string city { get; set; }
+
+    [Display(Name = "Kraj")]
+    public string country { get; set; }
+
+    [Display(Name = "Uwagi do zamówienia")]
+    public string messageToOrder { get; set; }
+
+    public int cartId { get; set; }
+
+    public virtual Cart Cart { get; set; }
+  }
 }

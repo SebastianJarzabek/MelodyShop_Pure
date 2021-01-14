@@ -9,26 +9,36 @@
 
 namespace MelodyShop.DataAccessLayer
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Product
+  using System;
+  using System.Collections.Generic;
+  using System.ComponentModel.DataAnnotations;
+
+  public partial class Product
+  {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Product()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.Carts = new HashSet<Cart>();
-        }
-    
-        public int id { get; set; }
-        public string producer { get; set; }
-        public string model { get; set; }
-        public string detail { get; set; }
-        public decimal price { get; set; }
-        public int categoryId { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
-        public virtual Category Category { get; set; }
+      this.Carts = new HashSet<Cart>();
     }
+
+    public int id { get; set; }
+
+    [Display(Name = "Producent")]
+    public string producer { get; set; }
+
+    [Display(Name = "Model")]
+    public string model { get; set; }
+
+    [Display(Name = "Szczegó?y")]
+    public string detail { get; set; }
+
+    [Display(Name = "Cena")]
+    public decimal price { get; set; }
+
+    public int categoryId { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Cart> Carts { get; set; }
+    public virtual Category Category { get; set; }
+  }
 }

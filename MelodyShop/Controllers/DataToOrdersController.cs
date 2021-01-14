@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -8,112 +7,113 @@ using MelodyShop.Models;
 
 namespace MelodyShop.Controllers
 {
-  public class ProductController : Controller
+  public class DataToOrdersController : Controller
   {
     private ApplicationDbContext db = new ApplicationDbContext();
 
-    // GET: Product
+    // GET: DataToOrders
     public ActionResult Index()
     {
-      var products = db.Products.Include(p => p.Category);
-      return View(products.ToList());
+      var dataToOrders = db.DataToOrders.Include(d => d.Cart);
+      return View(dataToOrders.ToList());
     }
 
-    // GET: Product/Details/5
+    // GET: DataToOrders/Details/5
     public ActionResult Details(int? id)
     {
       if (id == null)
       {
         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
       }
-      Product product = db.Products.Find(id);
-      if (product == null)
+      DataToOrder dataToOrder = db.DataToOrders.Find(id);
+      if (dataToOrder == null)
       {
         return HttpNotFound();
       }
-      return View(product);
+      return View(dataToOrder);
     }
 
-    // GET: Product/Create
+    // GET: DataToOrders/Create
     public ActionResult Create()
     {
-      ViewBag.categoryId = new SelectList(db.Categories, "id", "name");
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id");
       return View();
     }
 
-    // POST: Product/Create
+    // POST: DataToOrders/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to, for 
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create([Bind(Include = "id,producer,model,detail,price,categoryId")] Product product)
+    public ActionResult Create([Bind(Include = "id,name,surname,email,phoneNumber,street,hoseNumber,postalCode,city,country,messageToOrder,cartId")] DataToOrder dataToOrder)
     {
       if (ModelState.IsValid)
       {
-        db.Products.Add(product);
+        db.DataToOrders.Add(dataToOrder);
         db.SaveChanges();
         return RedirectToAction("Index");
       }
 
-      ViewBag.categoryId = new SelectList(db.Categories, "id", "name", product.categoryId);
-      return View(product);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
+      return View(dataToOrder);
     }
 
-    // GET: Product/Edit/5
+    // GET: DataToOrders/Edit/5
     public ActionResult Edit(int? id)
     {
       if (id == null)
       {
         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
       }
-      Product product = db.Products.Find(id);
-      if (product == null)
+      DataToOrder dataToOrder = db.DataToOrders.Find(id);
+      if (dataToOrder == null)
       {
         return HttpNotFound();
       }
-      ViewBag.categoryId = new SelectList(db.Categories, "id", "name", product.categoryId);
-      return View(product);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      return View(dataToOrder);
     }
 
-    // POST: Product/Edit/5
+    // POST: DataToOrders/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to, for 
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit([Bind(Include = "id,producer,model,detail,price,categoryId")] Product product)
+    public ActionResult Edit([Bind(Include = "id,name,surname,email,phoneNumber,street,hoseNumber,postalCode,city,country,messageToOrder,cartId")] DataToOrder dataToOrder)
     {
       if (ModelState.IsValid)
       {
-        db.Entry(product).State = EntityState.Modified;
+        db.Entry(dataToOrder).State = EntityState.Modified;
         db.SaveChanges();
         return RedirectToAction("Index");
       }
-      ViewBag.categoryId = new SelectList(db.Categories, "id", "name", product.categoryId);
-      return View(product);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      return View(dataToOrder);
     }
 
-    // GET: Product/Delete/5
+    // GET: DataToOrders/Delete/5
     public ActionResult Delete(int? id)
     {
       if (id == null)
       {
         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
       }
-      Product product = db.Products.Find(id);
-      if (product == null)
+      DataToOrder dataToOrder = db.DataToOrders.Find(id);
+      if (dataToOrder == null)
       {
         return HttpNotFound();
       }
-      return View(product);
+      return View(dataToOrder);
     }
 
-    // POST: Product/Delete/5
+    // POST: DataToOrders/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public ActionResult DeleteConfirmed(int id)
     {
-      Product product = db.Products.Find(id);
-      db.Products.Remove(product);
+      DataToOrder dataToOrder = db.DataToOrders.Find(id);
+      db.DataToOrders.Remove(dataToOrder);
       db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -126,21 +126,5 @@ namespace MelodyShop.Controllers
       }
       base.Dispose(disposing);
     }
-
-    protected void AddToCart_Click(object sender, EventArgs e)
-    {
-      int? id;
-      var cartItem = new Cart()
-      {
-        //productId = product.id,
-        //quantity = 1,
-        //price = product.price
-      };
-
-      db.Carts.Add(cartItem);
-      db.SaveChanges();
-
-    }
   }
 }
-
