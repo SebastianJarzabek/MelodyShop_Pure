@@ -4,14 +4,14 @@
     ViewBag.Title = "Usuń Z koszyka";
 }
 
-<h2>Usuń z koszyka</h2>
-
 @if (TempData["SM"] != null)
 {
-    <div class="alert alert-warning">
+    <div class="alert-danger alert">
         @TempData["SM"]
     </div>
 }
+
+<h2>Usuń z koszyka</h2>
 
 <h3>Czy napewno chcesz usunąć produkt z koszyka?</h3>
 <div>

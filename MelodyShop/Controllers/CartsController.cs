@@ -154,10 +154,14 @@ namespace MelodyShop.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult DeleteConfirmed(int id)
     {
-      TempData["SM"] = "Czy potwierdzasz usunięcie produktu z koszyka?";
+
       Cart cart = db.Carts.Find(id);
+      var producer = cart.Product.producer;
+      var model = cart.Product.model;
+
       db.Carts.Remove(cart);
       db.SaveChanges();
+      TempData["SM"] = $"Usunięto produkt {producer} {model} z koszyka.";
       return RedirectToAction("Index");
     }
 

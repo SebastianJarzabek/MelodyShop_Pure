@@ -4,6 +4,13 @@
     ViewBag.Title = "Koszyk";
 }
 
+@if (TempData["SM"] != null)
+{
+    <div class="alert-danger alert">
+        @TempData["SM"]
+    </div>
+}
+
 <h2>Zawartość twojego koszyka</h2>
 
 <table class="table">
@@ -23,27 +30,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Product.producer)
-    </td>
-    <th>
-        @Html.DisplayNameFor(model => model.Product.model)
-    </th>
-    <td>
-        @Html.DisplayFor(modelItem => item.quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.price)
-    </td>
-    <td>
-        @Html.ActionLink("Edytuj ilość", "Edit", new { id = item.id }) |
-        @Html.ActionLink("Szczegóły", "Details", new { id = item.id }) |
-        @Html.ActionLink("Usuń", "Delete", new { id = item.id })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.producer)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.model)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj ilość", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.id }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
 <div>
