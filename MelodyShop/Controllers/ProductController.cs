@@ -129,14 +129,7 @@ namespace MelodyShop.Controllers
 
     protected void AddToCart_Click(object sender, EventArgs e)
     {
-      int? id;
-      var cartItem = new Cart()
-      {
-        //productId = product.id,
-        //quantity = 1,
-        //price = product.price
-      };
-
+      var cartItem = new Cart();
       db.Carts.Add(cartItem);
       db.SaveChanges();
 

@@ -10,7 +10,9 @@
 {
     <div class="alert alert-warning">
         @TempData["SM"]
-    </div>}
+    </div>
+}
+
 <h3>Czy napewno chcesz usunąć produkt z koszyka?</h3>
 <div>
     <hr />
@@ -46,8 +48,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
         </div>
     }
 </div>

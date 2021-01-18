@@ -28,7 +28,7 @@ namespace MelodyShop.Controllers
 
       var product = db.Products.Find(id);
 
-            var cartItem = new Cart()
+      var cartItem = new Cart()
       {
         productId = product.id,
         quantity = 1,

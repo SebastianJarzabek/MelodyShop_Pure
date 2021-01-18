@@ -100,12 +100,6 @@ else
                     @Html.DisplayFor(modelItem => item.price)
                 </td>
                 <td>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" name="btnAddToCart" class="btn btn-default" id="btnAddToCart" value="Dodaj do koszyka" runat="server" onserverclick="AddToCart_Click" />
-                        </div>
-                    </div>
                     @Html.ActionLink("Dodaj do koszyka", "AddToCart", "Carts", new { id = item.id },null)
                 </td>
             </tr>

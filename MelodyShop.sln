@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodyShop.Tests", "MelodyS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelodyShop", "MelodyShop\MelodyShop.csproj", "{EBFDD59D-D74E-4834-AF2F-6E0E7BE8E49F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Melody.DB.Deployment", "Melody.DB.Deployment\Melody.DB.Deployment.sqlproj", "{228E8994-304A-4975-BA4F-DF401B29DF3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Praca inz", "Praca inz", "{DD700C7B-B387-4CBB-95C0-D9677B521F1A}"
+	ProjectSection(SolutionItems) = preProject
+		Po poprawkach Od K - spis 1- praca inz.doc = Po poprawkach Od K - spis 1- praca inz.doc
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,12 @@ Global
 		{EBFDD59D-D74E-4834-AF2F-6E0E7BE8E49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBFDD59D-D74E-4834-AF2F-6E0E7BE8E49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBFDD59D-D74E-4834-AF2F-6E0E7BE8E49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{228E8994-304A-4975-BA4F-DF401B29DF3C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

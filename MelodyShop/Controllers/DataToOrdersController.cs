@@ -47,14 +47,14 @@ namespace MelodyShop.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "id,name,surname,email,phoneNumber,street,hoseNumber,postalCode,city,country,messageToOrder,cartId")] DataToOrder dataToOrder)
     {
-      if (ModelState.IsValid)
-      {
-        db.DataToOrders.Add(dataToOrder);
-        db.SaveChanges();
-        return RedirectToAction("Index");
-      }
+      //if (ModelState.IsValid)
+      //{
+      //  db.DataToOrders.Add(dataToOrder);
+      //  db.SaveChanges();
+      //  return RedirectToAction("Index");
+      //}
 
-      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      //ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
       TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
       return View(dataToOrder);
     }
