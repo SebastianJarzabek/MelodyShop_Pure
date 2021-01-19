@@ -21,6 +21,32 @@ namespace MelodyShop.Tests.Controllers
     }
 
     [TestMethod]
+    public void About_Correct_ViewBagMessage()
+    {
+      // Arrange
+      HomeController controller = new HomeController();
+
+      // Act
+      ViewResult result = controller.About() as ViewResult;
+
+      // Assert
+      Assert.AreEqual("O mnie", result.ViewBag.Message);
+    }
+
+    [TestMethod]
+    public void About()
+    {
+      // Arrange
+      HomeController controller = new HomeController();
+
+      // Act
+      ViewResult result = controller.About() as ViewResult;
+
+      // Assert
+      Assert.IsNotNull(result);
+    }
+
+    [TestMethod]
     public void Contact()
     {
       // Arrange
@@ -32,5 +58,19 @@ namespace MelodyShop.Tests.Controllers
       // Assert
       Assert.IsNotNull(result);
     }
+
+    [TestMethod]
+    public void Contact_Correct_ViewBagMessage()
+    {
+      // Arrange
+      HomeController controller = new HomeController();
+
+      // Act
+      ViewResult result = controller.Contact() as ViewResult;
+
+      // Assert
+      Assert.AreEqual("Kontakt", result.ViewBag.Message);
+    }
+
   }
 }
