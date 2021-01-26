@@ -126,7 +126,11 @@ namespace MelodyShop.Controllers
     {
       if (ModelState.IsValid)
       {
-        db.Entry(cart).State = EntityState.Modified;
+        var cartItem = db.Carts.Find(cart.id);
+        var product = db.Products.Find(cartItem.productId);
+        cartItem.quantity = cart.quantity;
+        cartItem.price = product.price * cart.quantity;
+        db.Entry(cartItem).State = EntityState.Modified;
         db.SaveChanges();
         return RedirectToAction("Index");
       }
