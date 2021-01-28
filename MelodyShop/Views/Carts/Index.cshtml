@@ -11,49 +11,60 @@
     </div>
 }
 
-<h2>Zawartość twojego koszyka</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.producer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th></th>
-    </tr>
+@if (Model.Any())
+{
+    <h2>Zawartość twojego koszyka</h2>
 
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.producer)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.producer)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Product.model)
             </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.ActionLink("Edytuj ilość", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Szczegóły", "Details", new { id = item.id }) |
-                @Html.ActionLink("Usuń", "Delete", new { id = item.id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<div>
-    @Html.ActionLink("Dodaj dane do przesyłki.", "Create", "DataToOrders")
-</div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.producer)
+                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product.model)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.ActionLink("Edytuj ilość", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("Dodaj dane do przesyłki.", "Create", "DataToOrders")
+    </div>
+}
+else
+{
+    <h1>Twój koszyk jest pusty!</h1>
+    <h3>Nie włożyliśmy do niego jeszcze żadnych zakupów.</h3>
+    <h4>Przejdź do produktów i zapoznaj się z naszymi ofertami!</h4>
+    @Html.ActionLink("Produkty", "Index", "Product")
+}
