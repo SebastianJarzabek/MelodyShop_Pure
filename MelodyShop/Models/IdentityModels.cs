@@ -20,7 +20,7 @@ namespace MelodyShop.Models
   public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
   {
     public ApplicationDbContext()
-        : base("MelodyShopDB", throwIfV1Schema: false)
+        : base("DefaultConnection", throwIfV1Schema: false)
     {
     }
 
