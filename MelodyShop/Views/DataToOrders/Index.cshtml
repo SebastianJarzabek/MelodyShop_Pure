@@ -4,15 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Dodaj dane do zrealizowania przesyłki.</h2>
+<h2>Zamówienia</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Cart.id)
+            @Html.DisplayNameFor(model => model.Cart.Product.producer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cart.Product.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cart.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cart.price)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.name)
@@ -47,47 +53,52 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cart.id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hoseNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.messageToOrder)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.Product.producer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.Product.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hoseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.messageToOrder)
+            </td>
+        </tr>
+    }
 
 </table>
