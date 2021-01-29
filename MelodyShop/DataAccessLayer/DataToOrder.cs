@@ -26,16 +26,16 @@ namespace MelodyShop.DataAccessLayer
     [Display(Name = "Email")]
     public string email { get; set; }
 
-    [Display(Name = "Numer Telefonu")]
+    [Display(Name = "Numer telefonu")]
     public string phoneNumber { get; set; }
 
     [Display(Name = "Ulica")]
     public string street { get; set; }
 
-    [Display(Name = "Numer domu")]
+    [Display(Name = "Numer domu/lokalu")]
     public string hoseNumber { get; set; }
 
-    [Display(Name = "Kod pocztowy")]
+    [Display(Name = "Kod-pocztowy")]
     public string postalCode { get; set; }
 
     [Display(Name = "Miasto")]
@@ -47,8 +47,15 @@ namespace MelodyShop.DataAccessLayer
     [Display(Name = "Uwagi do zamówienia")]
     public string messageToOrder { get; set; }
 
-    public int cartId { get; set; }
+    public Nullable<int> productId { get; set; }
 
-    public virtual Cart Cart { get; set; }
+    [Display(Name = "Ilość")]
+    public string quantity { get; set; }
+
+
+    [Display(Name = "Kwota do zapłaty")]
+    public string price { get; set; }
+
+    public virtual Product Product { get; set; }
   }
 }

@@ -15,7 +15,7 @@ namespace MelodyShop.Controllers
     // GET: DataToOrders
     public ActionResult Index()
     {
-      var dataToOrders = db.DataToOrders.Include(d => d.Cart);
+      var dataToOrders = db.DataToOrders.Include(c => c.Product);
       return View(dataToOrders.ToList());
     }
 
@@ -55,17 +55,19 @@ namespace MelodyShop.Controllers
 
         foreach (var item in cartItems)
         {
-          dataToOrder.cartId = item.id;
+          dataToOrder.productId = item.productId;
+          dataToOrder.quantity = item.quantity.ToString();
+          dataToOrder.price = item.price.ToString();
           db.DataToOrders.Add(dataToOrder);
+          db.Carts.Remove(item);
         }
-
         db.SaveChanges();
 
         TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
         return RedirectToAction("Index", "Home");
       }
 
-      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder);
       TempData["SM"] = "Aby przekazać zamówienie do realizacji wszystkie pola muszą być uzupełnione.";
       return View(dataToOrder);
     }
@@ -82,7 +84,7 @@ namespace MelodyShop.Controllers
       {
         return HttpNotFound();
       }
-      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder);
       return View(dataToOrder);
     }
 
@@ -99,7 +101,7 @@ namespace MelodyShop.Controllers
         db.SaveChanges();
         return RedirectToAction("Index");
       }
-      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder);
       return View(dataToOrder);
     }
 

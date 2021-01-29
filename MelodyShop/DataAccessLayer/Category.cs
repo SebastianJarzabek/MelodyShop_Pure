@@ -23,7 +23,7 @@ namespace MelodyShop.DataAccessLayer
 
     public int id { get; set; }
 
-    [Display(Name = "Nazwa kategorii")]
+    [Display(Name = "Kategoria")]
     public string name { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

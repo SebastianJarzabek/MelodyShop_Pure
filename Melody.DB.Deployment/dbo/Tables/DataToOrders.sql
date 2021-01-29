@@ -10,13 +10,16 @@
     [city]           NVARCHAR (MAX) NULL,
     [country]        NVARCHAR (MAX) NULL,
     [messageToOrder] NVARCHAR (MAX) NULL,
-    [cartId]         INT            NOT NULL,
+    [productId]      INT            NULL,
+    [quantity]       NVARCHAR (MAX) NULL,
+    [price]          NVARCHAR (MAX) NULL,
     CONSTRAINT [PK_dbo.DataToOrders] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [FK_dbo.DataToOrders_dbo.Carts_cartId] FOREIGN KEY ([cartId]) REFERENCES [dbo].[Carts] ([id]) ON DELETE CASCADE
+    CONSTRAINT [FK_dbo.DataToOrders_dbo.Products_productId] FOREIGN KEY ([productId]) REFERENCES [dbo].[Products] ([id])
 );
 
 
+
+
 GO
-CREATE NONCLUSTERED INDEX [IX_cartId]
-    ON [dbo].[DataToOrders]([cartId] ASC);
+
 

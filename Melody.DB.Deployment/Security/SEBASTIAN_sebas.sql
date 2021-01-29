@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [SEBASTIAN\sebas]
+    FROM WINDOWS;
+
