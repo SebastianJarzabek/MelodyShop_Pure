@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -47,15 +48,25 @@ namespace MelodyShop.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "id,name,surname,email,phoneNumber,street,hoseNumber,postalCode,city,country,messageToOrder,cartId")] DataToOrder dataToOrder)
     {
-      //if (ModelState.IsValid)
-      //{
-      //  db.DataToOrders.Add(dataToOrder);
-      //  db.SaveChanges();
-      //  return RedirectToAction("Index");
-      //}
+      if (ModelState.IsValid)
+      {
+        var carts = db.Carts.Include(c => c.Product);
+        var cartItems = carts.ToList();
 
-      //ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
-      TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
+        foreach (var item in cartItems)
+        {
+          dataToOrder.cartId = item.id;
+          db.DataToOrders.Add(dataToOrder);
+          db.Carts.Remove(item);
+        }
+
+        db.SaveChanges();
+        TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
+        return RedirectToAction("Index", "Home");
+      }
+
+      ViewBag.cartId = new SelectList(db.Carts, "id", "id", dataToOrder.cartId);
+      TempData["SM"] = "Aby przekazać zamówienie do realizacji wszystkie pola muszą być uzupełnione.";
       return View(dataToOrder);
     }
 

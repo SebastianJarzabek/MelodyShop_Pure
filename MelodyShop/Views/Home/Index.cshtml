@@ -2,6 +2,12 @@
     ViewBag.Title = "Melody Shop";
 }
 
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>}
+
 <div name="Main" class="jumbotron">
     <h1>Witaj w Melody Shop</h1>
     <p class="lead">Prawdopodobnie najlepszy sklep muzyczny w Polsce!</p>
