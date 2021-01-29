@@ -57,10 +57,10 @@ namespace MelodyShop.Controllers
         {
           dataToOrder.cartId = item.id;
           db.DataToOrders.Add(dataToOrder);
-          db.Carts.Remove(item);
         }
 
         db.SaveChanges();
+
         TempData["SM"] = "Dziękujemy, Twoje zamówienie zostało dodane. Niebawem zostanie przekazane do realizacji.";
         return RedirectToAction("Index", "Home");
       }
